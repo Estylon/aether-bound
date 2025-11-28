@@ -1,0 +1,37 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "character": {
+      "attributes": {
+        "mgt": { "value": 0, "label": "MIGHT" },
+        "fin": { "value": 0, "label": "FINESSE" },
+        "spr": { "value": 0, "label": "SPIRIT" },
+        "tac": { "value": 0, "label": "TACTICS" }
+      },
+      "resources": {
+        "hp": { "value": 10, "max": 10, "label": "Health" },
+        "ap": { "value": 6, "max": 6, "label": "Action Points" },
+        "rp": { "value": 0, "max": 6, "label": "Reaction Points (Flux)" },
+        "burn": { "value": 0, "max": 5, "label": "Magic Burn" }
+      },
+      "derived": {
+        "def": { "value": 10 },
+        "speed": { "value": 4 }
+      },
+      "details": {
+        "level": { "value": 1 },
+        "job": { "value": "" },
+        "background": { "value": "" }
+      }
+    }
+  },
+  "Item": {
+    "types": ["weapon"],
+    "weapon": {
+      "damage": { "formula": "1d6", "type": "physical" },
+      "apCost": { "value": 2 },
+      "range": { "value": 1 },
+      "sockets": { "value": 0, "max": 1 }
+    }
+  }
+}

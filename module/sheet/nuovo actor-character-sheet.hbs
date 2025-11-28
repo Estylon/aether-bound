@@ -1,0 +1,63 @@
+<form class="{{cssClass}}" autocomplete="off">
+    
+    <!-- HEADER: Nome e Immagine -->
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            
+            <!-- RESOURCES GRID -->
+            <div class="resources grid grid-3col">
+                <!-- HP -->
+                <div class="resource flex-group-center">
+                    <label>HP</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="text" name="system.resources.hp.value" value="{{system.resources.hp.value}}" data-dtype="Number"/>
+                        <span> / </span>
+                        <!-- Nota: HP MAX è readonly perché calcolato in actor.js -->
+                        <span class="readonly-stat">{{system.resources.hp.max}}</span>
+                    </div>
+                </div>
+
+                <!-- AP (Stamina) -->
+                <div class="resource flex-group-center">
+                    <label>AP</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="text" name="system.resources.ap.value" value="{{system.resources.ap.value}}" data-dtype="Number"/>
+                        <span> / </span>
+                        <span>{{system.resources.ap.max}}</span>
+                    </div>
+                </div>
+
+                <!-- DEF (Derived) -->
+                <div class="resource flex-group-center">
+                    <label>DEF</label>
+                    <span class="readonly-stat box-large">{{system.derived.def.value}}</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ATTRIBUTES (The Core) -->
+    <section class="sheet-body">
+        <h2>Attributes</h2>
+        <div class="attributes grid grid-4col">
+            {{#each system.attributes as |attr key|}}
+            <div class="attribute flex-group-center">
+                <!-- Cliccando l'etichetta si tira il dado -->
+                <label class="rollable" data-roll="2d6 + @attributes.{{key}}.value" data-label="{{attr.label}}">{{attr.label}}</label>
+                <input type="text" name="system.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}}
+        </div>
+        
+        <hr>
+        
+        <h2>Burn Track</h2>
+        <div class="burn-track flexrow">
+            <label>Current Burn:</label>
+            <input type="range" name="system.resources.burn.value" value="{{system.resources.burn.value}}" min="0" max="5" step="1">
+            <span>{{system.resources.burn.value}} / 5</span>
+        </div>
+    </section>
+</form>

@@ -1,0 +1,36 @@
+{
+  "id": "aether-bound",
+  "title": "Aether Bound RPG",
+  "description": "Tactical 2d6 Fantasy RPG System.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Lead Designer"
+    }
+  ],
+  "esmodules": [
+    "module/aether.js"
+  ],
+  "styles": [
+    "aether.css"
+  ],
+  "scripts": [],
+  "documentTypes": {
+    "Actor": ["character", "npc"],
+    "Item": ["weapon", "armor"]
+  },
+  "grid": {
+    "type": 1,
+    "distance": 1,
+    "units": "sq"
+  },
+  "primaryTokenAttribute": "resources.hp",
+  "secondaryTokenAttribute": "resources.ap",
+  "url": "",
+  "manifest": "",
+  "download": ""
+}
